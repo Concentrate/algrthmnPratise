@@ -35,8 +35,11 @@ public class ListElementTypeJudge {
         initSet();
 //        Scanner scanner = new Scanner(System.in);
         Scanner scanner = null;
+
+        String file2_1="/Users/liudeyu/Documents/有用文档/编程语言work2测试用例";
+        String file2_3="/Users/liudeyu/Documents/课程作业/编程语言/编程语言2.3测试用例";
         try {
-            scanner = new Scanner(new FileInputStream("/Users/liudeyu/Documents/课程作业/编程语言/编程语言2.3测试用例"));
+            scanner = new Scanner(new FileInputStream(file2_1));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -91,6 +94,7 @@ public class ListElementTypeJudge {
         }
         if (startIndex < rawLine.length()) {
             String filterMetrial = rawLine.substring(startIndex);
+            filterMetrial=filterMetrial.trim();
             String[] spliteArray = filterMetrial.split("\\s+");
             if (spliteArray.length >= 3) {
                 String operator = spliteArray[0];
