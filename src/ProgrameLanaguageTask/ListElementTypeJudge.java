@@ -39,7 +39,7 @@ public class ListElementTypeJudge {
         String file2_1="/Users/liudeyu/Documents/有用文档/编程语言work2测试用例";
         String file2_3="/Users/liudeyu/Documents/课程作业/编程语言/编程语言2.3测试用例";
         try {
-            scanner = new Scanner(new FileInputStream(file2_1));
+            scanner = new Scanner(new FileInputStream(file2_3));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
