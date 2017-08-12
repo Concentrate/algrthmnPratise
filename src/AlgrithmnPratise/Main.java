@@ -1,48 +1,62 @@
 package AlgrithmnPratise;
 
-
+import java.io.*;
 import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
 
-/**
- * Created by liudeyu on 2017/4/7.
- */
 public class Main {
 
-    public static void main(String[] args) {
-        Scanner scanner=new Scanner(System.in);
-        int n=scanner.nextInt();
-        Person[]allPeople=new Person[n];
-        for(int i=0;i<n;i++){
-            Person person=new Person();
-            person.score=scanner.nextInt();
-            person.deepPower=scanner.nextInt();
-            allPeople[i]=person;
+/** 请完成下面这个函数，实现题目要求的功能 **/
+    /**
+     * 当然，你也可以不按照这个模板来作答，完全按照自己的想法来 ^-^
+     **/
+    static int judgeHowManyOne(int[] tmpList, int start, int end,int number) {
+        if (start > end) {
+            return 0;
         }
-        int theMax=0;
-        for(int i=0;i<allPeople.length;i++){
-            for(int j=0;j<allPeople.length;j++){
-                if(i==j){
-                    continue;
-                }
-                if(allPeople[i].score<=allPeople[j].score){
-                   continue;
-                }else{
-                    int t=allPeople[i].score+allPeople[j].deepPower-allPeople[j].score;
-                    if(t>allPeople[i].score){
-                        allPeople[i].score=t;
-                    }
-                }
-            }
-            if(allPeople[i].score+allPeople[i].deepPower>theMax){
-                theMax=allPeople[i].score+allPeople[i].deepPower;
+        int sum = 0;
+        for (int i = start; i <= end; i++) {
+            if (tmpList[i] == number) {
+                sum++;
             }
         }
-        System.out.println(theMax);
+        return sum;
     }
 
+    static int myAns(int[] timeList) {
+        int[] record = new int[timeList.length + 1];
+        record[0] = 0;
+        for (int i = 1; i <= timeList.length; i++) {
+            int tmpMax = 0;
+            for (int j = 1; j < i; j++) {
+                int k = record[j] + judgeHowManyOne(timeList, j, i - 1,1);
+                if (tmpMax < k) {
+                    tmpMax = k;
+                }
+            }
+            record[i]=Math.max(tmpMax,judgeHowManyOne(timeList,0,i-1,0));
+        }
+        return record[timeList.length];
 
-}
-class Person{
-    int score;
-    int deepPower;
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int res;
+
+        int _timeList_size = 0;
+        _timeList_size = Integer.parseInt(in.nextLine().trim());
+        int[] _timeList = new int[_timeList_size];
+        int _timeList_item;
+        for (int _timeList_i = 0; _timeList_i < _timeList_size; _timeList_i++) {
+            _timeList_item = Integer.parseInt(in.nextLine().trim());
+            _timeList[_timeList_i] = _timeList_item;
+        }
+
+        res = myAns(_timeList);
+        System.out.println(String.valueOf(res));
+
+    }
 }

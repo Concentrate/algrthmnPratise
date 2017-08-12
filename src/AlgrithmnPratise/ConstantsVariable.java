@@ -5,4 +5,5 @@ package AlgrithmnPratise;
  */
 public class ConstantsVariable {
     public static String DATA_PATH="/Users/liudeyu/data.txt";
+
 }

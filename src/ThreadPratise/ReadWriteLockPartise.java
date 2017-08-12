@@ -1,6 +1,5 @@
 package ThreadPratise;
 
-import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
