@@ -1,8 +1,0 @@
-3
-127 1996 12
-android_250_2_260_th.xml
-android_250_2_260_vi.xml
-rawString
-rawString-en
-rawString-th
-rawString-zh

@@ -1,5 +1,7 @@
 package com.com.ldy.java.AlgrithmnPratise;
 
+import com.ldy.java.AlgrithmnPratise.ConstantsVariable;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Date;
@@ -24,7 +26,7 @@ public class MaxContinusArraySum {
 //        }
 
         randomCreateData(array);
-//        ArrayUtil.displayArray(array);
+//        ArrayUtils.displayArray(array);
 
         testTimeUse(array);
     }
