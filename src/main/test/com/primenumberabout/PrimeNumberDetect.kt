@@ -15,7 +15,7 @@ class PrimeNumberDetect {
         @JvmStatic
         fun main(args: Array<String>) {
             val detector = PrimeNumberDetect()
-            ArrayUtils.displayArray(detector.detectPrimeNumber(2, 1000))
+            ArrayUtils.displayArray(detector.detectPrimeNumber(2, 10000))
         }
     }
 
