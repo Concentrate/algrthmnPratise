@@ -1,5 +1,9 @@
 package com.com.ldy.java.AlgrithmnPratise.dynamicProgram;
 
+import com.com.ldy.java.Util.ArrayUtils;
+
+import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -85,6 +89,18 @@ public class ClosestMinDistrubtion {
     }
 
 
+
+    @Deprecated
+    /**is wrong*/
+    int stupidMinGapNarrowThink(){
+        int []result = new int[value.length];
+        result[0]=value[0];
+        for(int a1=0;a1<value.length-1;a1++){
+            result[a1+1]=Math.abs(result[a1]-value[a1+1]);
+        }
+        return result[value.length-1];
+    }
+
     /**动态规划，自底向上空间优化*/
     int minGapDitributionDynamicWithSpaceOptime(){
         int n=value.length;
@@ -108,23 +124,26 @@ public class ClosestMinDistrubtion {
         n = scanner.nextInt();
         int[] array = new int[n];
         int total = 0;
+        Random random=new Random();
         for (int i = 0; i < n; i++) {
 //            array[i] = scanner.nextInt();
 //            array[i]= (int) (Math.random()*n);
-            array[i]=i;
+            array[i]=random.nextInt(n);
             total += array[i];
         }
         ClosestMinDistrubtion minDistrubtion = new ClosestMinDistrubtion();
         minDistrubtion.value = array;
         minDistrubtion.total = total;
-//        minDistrubtion.initMemoSpace(total,n);
+        minDistrubtion.initMemoSpace(total,n);
         long startTime=System.currentTimeMillis();
-//        int a = minDistrubtion.minGapDistrubution(0, 0);
-//        int a=minDistrubtion.recursiveWithMemo(0,0);
-//        int a=minDistrubtion.minGapDitributionWithDynamicProgram();
-        int a=minDistrubtion.minGapDitributionDynamicWithSpaceOptime();
+        int a = minDistrubtion.minGapDistrubution(0, 0);
+        int b=minDistrubtion.recursiveWithMemo(0,0);
+        int c=minDistrubtion.minGapDitributionWithDynamicProgram();
+        int d=minDistrubtion.minGapDitributionDynamicWithSpaceOptime();
         long endTime=System.currentTimeMillis();
-        System.out.println("The min gap is " + a+" and use time is "+(endTime-startTime)+" ms");
+        ArrayUtils.displayArray(array);
+        System.out.println(String.format("The min gap is,%d,%d,%d,%d ", a,b,c,d) );
+        System.out.println("the narrow gap by myself think is "+minDistrubtion.stupidMinGapNarrowThink());
 
     }
 }
