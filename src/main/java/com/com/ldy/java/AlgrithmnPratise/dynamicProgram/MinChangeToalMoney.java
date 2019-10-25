@@ -30,7 +30,7 @@ public class MinChangeToalMoney {
             return Integer.MAX_VALUE;
         }
         if (curMoney == changeMoney) {
-            if (mNumber > minNumber) {
+            if (mNumber < minNumber) {
                 minNumber = mNumber;
             }
             return mNumber;

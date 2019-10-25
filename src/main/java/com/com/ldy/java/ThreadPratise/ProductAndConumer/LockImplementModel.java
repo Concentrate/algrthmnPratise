@@ -103,7 +103,7 @@ class Consumer implements Runnable {
     public void consume() {
         while (true) {
             int t = stock.takeElementInStocks();
-            System.out.println("current thread:" + Thread.currentThread() + "   Consumer consume element is " + t);
+            System.out.println("current thread:" + Thread.currentThread() + "   HelloworldConsumer consume element is " + t);
             try {
                 Thread.sleep(300);
             } catch (InterruptedException e) {
