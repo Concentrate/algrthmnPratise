@@ -10,31 +10,36 @@ public class heapUseDemo {
 
     public static void main(String[] args) {
 
-        int []array=new int[N];
-        for(int i=0;i<array.length;i++){
-            array[i]=i+1;
+        int[] array = new int[N];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = array.length - i;
         }
-        while (true){
-            Scanner scanner=new Scanner(System.in);
-            int k=scanner.nextInt();
-            int kthMinValue=findKMinValue(k,array);
-            System.out.println("The k min value is "+kthMinValue);
+        while (true) {
+            Scanner scanner = new Scanner(System.in);
+            int k = scanner.nextInt();
+            int kthMinValue = findKMinValue(k, array);
+            System.out.println("The k min value is " + kthMinValue);
         }
 
     }
 
-    private static int findKMinValue(int k,int []array) {
-        MaxHeap maxHeap=new MaxHeap();
-        for(int i=0;i<k;i++){
-            maxHeap.insertElement(array[i]);
+    private static int findKMinValue(int k, int[] array) {
+        Queue<Integer> maxHeap = new PriorityQueue<>(array.length, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o2 - o1;
+            }
+        });
+        for (int i = 0; i < k; i++) {
+            maxHeap.offer(array[i]);
         }
-        for(int j=k;j<array.length;j++){
-            if(array[j]>maxHeap.top()){
-                maxHeap.pop();
-                maxHeap.insertElement(array[j]);
+        for (int j = k; j < array.length; j++) {
+            if (array[j] < maxHeap.peek()) {
+                int topEle = maxHeap.poll();
+                maxHeap.offer(array[j]);
             }
         }
-        return maxHeap.top();
+        return maxHeap.peek();
     }
 
     private static void displayArray(int[] sortedArray) {
