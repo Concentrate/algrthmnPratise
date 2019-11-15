@@ -1,8 +1,6 @@
 package com.com.ldy.java.JsonPratise;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.alibaba.fastjson.support.spring.annotation.FastJsonFilter;
-import com.alibaba.fastjson.support.spring.annotation.FastJsonView;
 
 import java.util.Map;
 

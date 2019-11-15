@@ -53,12 +53,12 @@ class PrimeNumberDetect {
         }
         var tStart = 2;
         val tSqrt = Math.sqrt(testNum.toDouble()).toInt();
-        while (tStart <= tSqrt) {
-            if (testNum % tStart == 0) {
-                return false
-            }
-            tStart = tStart + 1
-        }
+//        while (tStart <= tSqrt) {
+//            if (testNum %tStart == 0) {
+//                return false
+//            }
+//            tStart = tStart + 1
+//        }
         return true
     }
 
