@@ -24,6 +24,8 @@ public class ArrayUtils {
     }
 
 
+
+
     public static void displayArray(List<Integer> array) {
         IterableUtils.forEach(array, (index, num) -> {
             System.out.print(num + " ");
@@ -39,8 +41,8 @@ public class ArrayUtils {
         if (array == null || array.size() == 0) {
             return;
         }
-        IterableUtils.forEach(array, (index, num) -> {
-            System.out.print(num + " ");
+        IterableUtils.forEach(array, (index, arr) -> {
+            System.out.print(arr + " ");
             if (index % 10 == 0 && index != 0) {
                 System.out.println();
             }
