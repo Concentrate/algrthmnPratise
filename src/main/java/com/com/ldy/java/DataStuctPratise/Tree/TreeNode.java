@@ -58,4 +58,8 @@ public class TreeNode<T> {
         TreeNode.getBSTRoundbin(7);
     }
 
+    @Override
+    public String toString() {
+        return "{" + "value:" + value + "}";
+    }
 }
