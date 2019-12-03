@@ -1,5 +1,12 @@
 package com.com.ldy.java.common;
 
+import com.google.common.collect.Collections2;
+import com.google.common.collect.Lists;
+import org.springframework.cglib.core.CollectionUtils;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -31,5 +38,16 @@ public class CollectionUtil {
         return tmp;
     }
 
+
+    public static List<Integer> copyList(List<Integer> src) {
+        if (src == null) {
+            return Collections.emptyList();
+        }
+        List<Integer> dest = new ArrayList<>();
+        for (int k1 : src) {
+            dest.add(k1);
+        }
+        return dest;
+    }
 
 }

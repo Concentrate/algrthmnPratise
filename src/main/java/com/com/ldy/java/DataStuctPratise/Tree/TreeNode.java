@@ -18,7 +18,9 @@ public class TreeNode<T> {
 
         TreeNode<Integer> head = null;
         head = toImplementInsertNodeMid(1, count, head);
+        System.out.println("tree struct is :");
         TreeUtils.printTree(head);
+        System.out.println("========end=======");
         return head;
 
     }
