@@ -1,0 +1,10 @@
+package gopratise
+
+func testFun()  {
+
+
+}
+
+
+
+

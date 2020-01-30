@@ -28,12 +28,12 @@ public class FindSumFromTree {
         if (treeNode == null) {
             return;
         }
-        tmpSum += treeNode.value;
+        tmpSum += treeNode.val;
         if (tmpSum == target) {
-            recordValues.add(treeNode.value);
+            recordValues.add(treeNode.val);
             resultSet.add(recordValues);
         } else if (tmpSum < target) {
-            recordValues.add(treeNode.value);
+            recordValues.add(treeNode.val);
             List<Integer> tmpCopy = CollectionUtil.copyList(recordValues);
             recursiveFindSum(treeNode.left, target, tmpSum, tmpCopy);
             tmpCopy = CollectionUtil.copyList(recordValues);
@@ -54,7 +54,7 @@ public class FindSumFromTree {
         if (treeNode == null) {
             return;
         }
-        tmpSum += treeNode.value;
+        tmpSum += treeNode.val;
         System.out.print(tmpSum + "   ");
         toImplementPrintAllSumTreeNode(treeNode.left, tmpSum);
         toImplementPrintAllSumTreeNode(treeNode.right, tmpSum);

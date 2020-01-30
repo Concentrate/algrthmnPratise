@@ -138,7 +138,7 @@ class packageProblem {
 
     private void displayResult(int aValue) {
         maxValue = aValue;
-        System.out.println("max value is " + maxValue);
+        System.out.println("max val is " + maxValue);
         boolean isFirst = true;
         ArrayList<Integer> integers = new ArrayList<>();
         for (int i = 0; i < record.length; i++) {
@@ -156,7 +156,7 @@ class packageProblem {
             sum1 += weight[integers.get(i)];
         }
         System.out.print("=" + sum1 + "\n");
-        System.out.print("the value is : ");
+        System.out.print("the val is : ");
         for (int i = 0; i < integers.size(); i++) {
             if (i != 0) {
                 System.out.print("+");

@@ -1,17 +1,42 @@
 package com.com.ldy.java.DataStuctPratise.Tree;
 
-import java.util.Set;
-
 /**
  * Created by liudeyu on 2019/12/2.
  */
 public class TreeNode<T> {
-    T value;
-    TreeNode<T> left;
-    TreeNode<T> right;
+    public T val;
+    public TreeNode<T> left;
+    public TreeNode<T> right;
 
     public TreeNode() {
 
+    }
+
+    public T getVal() {
+        return val;
+    }
+
+    public TreeNode<T> setVal(T val) {
+        this.val = val;
+        return this;
+    }
+
+    public TreeNode<T> getLeft() {
+        return left;
+    }
+
+    public TreeNode<T>  setLeft(TreeNode<T> left) {
+        this.left = left;
+        return this;
+    }
+
+    public TreeNode<T> getRight() {
+        return right;
+    }
+
+    public TreeNode<T>  setRight(TreeNode<T> right) {
+        this.right = right;
+        return this;
     }
 
     public static TreeNode<Integer> getBSTRoundbin(int count) {
@@ -31,30 +56,34 @@ public class TreeNode<T> {
             head = insertValue(end, head);
             return head;
         }
-        int mid = (start + end) / 2;
+        int mid = (int) Math.ceil((start + end) / 2.0f);
         head = insertValue(mid, head);
-        toImplementInsertNodeMid(start, mid, head);
+        toImplementInsertNodeMid(start, mid - 1, head);
         toImplementInsertNodeMid(mid, end, head);
         return head;
     }
 
 
     public static TreeNode<Integer> insertValue(int tmp, TreeNode<Integer> head) {
-        if (head == null || head.value == null) {
+        if (head == null || head.val == null) {
             head = new TreeNode<>();
-            head.value = tmp;
+            head.val = tmp;
             head.left = null;
             head.right = null;
             return head;
         }
-        if (head.value < tmp) {
+        if (head.val < tmp) {
             head.right = insertValue(tmp, head.right);
-        } else if (head.value > tmp) {
+        } else if (head.val > tmp) {
             head.left = insertValue(tmp, head.left);
         }
         return head;
     }
 
+
+    public void printTreeStruct() {
+        TreeUtils.printTree(this);
+    }
 
     public static void main(String[] argv) {
         TreeNode.getBSTRoundbin(7);
@@ -62,6 +91,6 @@ public class TreeNode<T> {
 
     @Override
     public String toString() {
-        return "{" + "value:" + value + "}";
+        return val + "";
     }
 }

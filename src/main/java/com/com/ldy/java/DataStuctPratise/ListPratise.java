@@ -241,12 +241,12 @@ public class ListPratise {
         startTime=System.nanoTime();
         Node interNode2=listPratise.getEntryForNoLoopList(listPratise,secondList);
         endTime=System.nanoTime();
-        System.out.println(interNode2.value+" intersection value and the naon time is "+(endTime-startTime) );
+        System.out.println(interNode2.value+" intersection val and the naon time is "+(endTime-startTime) );
         startTime=System.nanoTime();
         Node intersectionNode=listPratise.findEntryForNoLoopBaseCircle(listPratise,secondList);
         endTime=System.nanoTime();
         if(intersectionNode!=null){
-            System.out.println(intersectionNode.value+" intersection value and the naon time is "+(endTime-startTime) );
+            System.out.println(intersectionNode.value+" intersection val and the naon time is "+(endTime-startTime) );
         }
 
     }

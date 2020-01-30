@@ -52,7 +52,7 @@ public class ClassPratise {
         for (Field field : parentClass.getDeclaredFields()) {
             field.setAccessible(true);
             try {
-                System.out.println("field name is " + field.getName() + " and field value is " + field.get(object));
+                System.out.println("field name is " + field.getName() + " and field val is " + field.get(object));
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
