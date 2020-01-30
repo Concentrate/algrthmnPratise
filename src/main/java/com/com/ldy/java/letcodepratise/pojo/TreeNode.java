@@ -16,6 +16,11 @@ public class TreeNode {
         return String.valueOf(val);
     }
 
+
+    public boolean isValueEqual(TreeNode treeNode) {
+        return toString().equals(String.valueOf(treeNode));
+    }
+
     public TreeNode() {
     }
 
