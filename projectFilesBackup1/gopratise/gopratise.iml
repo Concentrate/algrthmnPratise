@@ -10,6 +10,6 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="GOPATH &lt;gopratise&gt;" level="project" />
   </component>
 </module>
-

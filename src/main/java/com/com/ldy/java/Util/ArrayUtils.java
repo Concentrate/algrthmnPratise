@@ -24,12 +24,10 @@ public class ArrayUtils {
     }
 
 
-
-
     public static void displayArray(List<Integer> array) {
         IterableUtils.forEach(array, (index, num) -> {
             System.out.print(num + " ");
-            if (index % 10 == 0) {
+            if (index != 0 && index % 10 == 0) {
                 System.out.println();
             }
         });
