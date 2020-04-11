@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JavaPratise.iml" filepath="$PROJECT_DIR$/JavaPratise.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gopratise/gopratise.iml" filepath="$PROJECT_DIR$/gopratise/gopratise.iml" />
     </modules>
   </component>
 </project>
