@@ -18,7 +18,7 @@ public class heapUseDemo {
             Scanner scanner = new Scanner(System.in);
             int k = scanner.nextInt();
             int kthMinValue = findKMinValue(k, array);
-            System.out.println("The k min value is " + kthMinValue);
+            System.out.println("The k min val is " + kthMinValue);
         }
 
     }
@@ -56,7 +56,7 @@ class MaxHeap {
 
     public MaxHeap() {
         array = new ArrayList<>();
-        array.add(Integer.MIN_VALUE); // invailed value
+        array.add(Integer.MIN_VALUE); // invailed val
         size = 0;
     }
 
