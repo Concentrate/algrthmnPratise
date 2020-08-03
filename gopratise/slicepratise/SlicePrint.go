@@ -50,11 +50,20 @@ func testArrayWithPoint(tmpArray *[]int)  {
 func pointerCaclu(tmpSlice []int) {
 	defer fmt.Printf(enterAndLeaveCall("pointerCaclu"))
 	p1 := unsafe.Pointer(&tmpSlice)
-	fmt.Printf("%v,  %v,value is  %v\n ", p1, uintptr(p1), **((**int)(p1)))
 
+	fmt.Printf("change to Slice Header %v \n",*(*reflect.SliceHeader)(p1))
+
+	fmt.Printf("slice addr is %p,slice[0] addr is %p ,and point is %v \n",&tmpSlice,&(tmpSlice[0]),p1)
+
+	// **[]int ,指的是 *(*[]int) ,  **(**[]int) 就是 []int了
+	// unsafe Point 转成啥样的指针都行，但是看意义
 	var p2 = unsafe.Pointer(uintptr(p1) + uintptr(8))
 	var p3 = unsafe.Pointer(uintptr(p1) + uintptr(16))
 	fmt.Printf("len is %v,cap is %v \n", *((*int)(p2)), *((*int)(p3)))
+
+	fmt.Printf("%v,  %v,value is  %v\n ", p1, uintptr(p1), **((**int)(p1)))
+
+
 
 	//var forceGetArrayP = **(**[20]int)(p1)
 	//for i := 0; i < 10; i++ {
@@ -111,6 +120,28 @@ func testArrayChange(bArr [6]int) {
 	}(bArr)
 
 	fmt.Printf(" after change array: %v,address %p \n", bArr, &bArr)
+
+	fmt.Printf("array addr is %p, and array 0 ele addr is %p \n",&bArr,&(bArr[0])) //the same
+}
+
+func testPrintAddressAndPoint()  {
+	defer fmt.Printf(enterAndLeaveCall("testPrintAddressAndPoint"))
+
+	var num=9
+	var tmpP=&num;
+	fmt.Printf("num %p, and point %v, and tmpP %p",&num,tmpP,tmpP)
+}
+
+type TestStrP struct {
+	num int
+	name string
+}
+
+func printStructPoint()  {
+	/*struct 的地址，和其第一个变量一致，跟数组一样的逻辑*/
+	defer fmt.Printf(enterAndLeaveCall("printStructPoint"))
+	tP:=TestStrP{num: 10,name: "apple"}
+	fmt.Printf("tp point value %p, tp inner element num address %v, another name address %v \n",&tP,&(tP.num),&(tP.name))
 }
 
 func main() {
@@ -134,15 +165,10 @@ func main() {
 
 	constructWithSliceHeader(tmpSlice)
 
-	//var tmpSlice = tmpArr[:]
-	//var pFirst = unsafe.Pointer(&tmpSlice[0])
-	//
-	//var anotherSliceHead = reflect.SliceHeader{Cap: 3, Len: 3}
-	//anotherSliceHead.Data = uintptr(pFirst)
-	//
-	//slice2 := *(*[]int)(unsafe.Pointer(&anotherSliceHead))
-	//fmt.Printf("%p,%v", pFirst, slice2)
+	//testPrintAddressAndPoint()
+	//printStructPoint()
 
-	//fmt.Printf("%v \n %v",tmpArr,tmpSlice)
+
+
 
 }
