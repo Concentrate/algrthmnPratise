@@ -8,8 +8,6 @@ import java.util.*
  */
 
 
-
-
 class PrimeNumberDetect {
     companion object {
         @JvmStatic
@@ -48,18 +46,7 @@ class PrimeNumberDetect {
     }
 
     private fun isPrimeNum(testNum: Int): Boolean {
-        if (testNum <= 1) {
-            return false;
-        }
-        var tStart = 2;
-        val tSqrt = Math.sqrt(testNum.toDouble()).toInt();
-        while (tStart <= tSqrt) {
-            if (testNum % tStart == 0) {
-                return false
-            }
-            tStart = tStart + 1
-        }
-        return true
+      return false;
     }
 
 
