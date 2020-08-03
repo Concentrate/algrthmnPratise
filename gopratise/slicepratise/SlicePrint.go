@@ -51,9 +51,11 @@ func pointerCaclu(tmpSlice []int) {
 	defer fmt.Printf(enterAndLeaveCall("pointerCaclu"))
 	p1 := unsafe.Pointer(&tmpSlice)
 
+
 	fmt.Printf("change to Slice Header %v \n",*(*reflect.SliceHeader)(p1))
 
 	fmt.Printf("slice addr is %p,slice[0] addr is %p ,and point is %v \n",&tmpSlice,&(tmpSlice[0]),p1)
+
 
 	// **[]int ,指的是 *(*[]int) ,  **(**[]int) 就是 []int了
 	// unsafe Point 转成啥样的指针都行，但是看意义
@@ -61,8 +63,14 @@ func pointerCaclu(tmpSlice []int) {
 	var p3 = unsafe.Pointer(uintptr(p1) + uintptr(16))
 	fmt.Printf("len is %v,cap is %v \n", *((*int)(p2)), *((*int)(p3)))
 
-	fmt.Printf("%v,  %v,value is  %v\n ", p1, uintptr(p1), **((**int)(p1)))
 
+	var oneApple=*((**int)(p1))
+	var d1= unsafe.Pointer(oneApple)
+	//d2:= unsafe.Pointer(uintptr(d1)+8);
+	//d2:=(*[12]int)d1
+	var oneMe=(*[336]int)(d1)
+
+	fmt.Printf("%v,  %v,value is  %v\n ", p1, uintptr(p1), oneMe[233])
 
 
 	//var forceGetArrayP = **(**[20]int)(p1)
@@ -76,16 +84,16 @@ func selfConstructSlice(tmpSlice []int) {
 
 	var s1 = struct {
 		addr uintptr
-		/*len  int
-		cap  int*/
+		len  int
+		cap  int
 		//tmp2 int
-	}{addr: uintptr(unsafe.Pointer(&tmpSlice)) /*, len: 60, cap:6*/}
+	}{addr: uintptr(unsafe.Pointer(&tmpSlice)) , len: 136, cap:336}
 	var cSlice = **(**[]int)( unsafe.Pointer(&s1)) // unsafe Point 转成啥样的指针都行，但是看意义
 	// **[]int ,指的是 *(*[]int) ,  **(**[]int) 就是 []int了
 
 	fmt.Printf("len of cSlice %v\n", len(cSlice))
 
-	for i := 0; i < len(cSlice) /*what if put 11 */ ; i++ {
+	for i := 0; i <  len(tmpSlice)  ; i++ {
 		fmt.Printf("%v ", cSlice[i])
 	}
 }
@@ -104,8 +112,9 @@ func constructWithSliceHeader(tmpSlice []int) {
 
 	var sliHeadP=*(*reflect.SliceHeader)(unsafe.Pointer(&tmpSlice)) // 地址，长度，容量
 
+	var oneMe=(*[6]int)(unsafe.Pointer(sliHeadP.Data))
 	fmt.Printf("%v \n",sliHeadP)
-	fmt.Printf("%v \n",*((*[6]int)(unsafe.Pointer(sliHeadP.Data))))
+	fmt.Printf("%v \n",(*(oneMe))[2])
 
 }
 
@@ -129,7 +138,7 @@ func testPrintAddressAndPoint()  {
 
 	var num=9
 	var tmpP=&num;
-	fmt.Printf("num %p, and point %v, and tmpP %p",&num,tmpP,tmpP)
+	fmt.Printf("num %s %p, and point %v, and tmpP %p", &num,&num,tmpP,tmpP)
 }
 
 type TestStrP struct {
@@ -168,7 +177,9 @@ func main() {
 	//testPrintAddressAndPoint()
 	//printStructPoint()
 
-
+	var ber=[3]int{1,23,3}
+	var cer=&ber
+	fmt.Print(cer[2])
 
 
 }
