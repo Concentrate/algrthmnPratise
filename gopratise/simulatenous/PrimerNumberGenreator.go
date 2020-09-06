@@ -37,7 +37,7 @@ func Generator(chInput chan int) chan int {
 	return out
 }
 
-func main() {
+func main2() {
 	var getPrimerNumCh = Generator(Initer())
 	for {
 		fmt.Printf("%v ", <-getPrimerNumCh)

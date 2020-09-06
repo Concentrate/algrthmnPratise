@@ -82,7 +82,7 @@ func (pub *Publisher) publishToSubscribers(tmpFilter FliterFun, message interfac
 	}
 }
 
-func main() {
+func main2() {
 	var Publisher = NewPublisher(10, 1)
 	golangSubsci := Publisher.Subscriber(func(msg interface{}) bool {
 		if va, ok := msg.(string); ok {
