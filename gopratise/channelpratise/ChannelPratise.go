@@ -68,9 +68,9 @@ func rangeUseChannelConsume() {
 
 func main() {
 	//withoutBuffer()
-	//withBuffer()
+	withBuffer()
 	//selectAndDefaultUse()
-	rangeUseChannelConsume()
+	//rangeUseChannelConsume()
 	time.Sleep(time.Minute)
 }
 
@@ -87,18 +87,42 @@ func withoutBuffer() {
 func produceAndConsumer(buffer int) {
 	tmpChan := make(chan int, buffer)
 
-	go func() {
-		for i := 0; i < 3; i++ {
-			tmpChan <- i
-			fmt.Printf("produce %v\n", i)
-		}
-	}()
+	//go func() {
+	//	for i := 0; i < 3; i++ {
+	//		tmpChan <- i
+	//		fmt.Printf("produce %v\n", i)
+	//	}
+	//}()
 
 	consuFun := func(tag string) {
-		fmt.Printf("tag %v, and consume %v\n", tag, <-tmpChan)
+		select {
+		case tmpva, ok := <-tmpChan:
+			fmt.Printf("tag %v, and consume %v,isok %v\n", tag, tmpva, ok)
+		}
 	}
+
+	testChannelCopy := func(aChan chan int) {
+		fmt.Println(aChan)
+		select {
+		case _, ok := <-aChan:
+			if !ok {
+				fmt.Println("close channel")
+			}
+
+		}
+	}
+
+	fmt.Println(tmpChan)
+	go testChannelCopy(tmpChan)
+	go testChannelCopy(tmpChan)
 
 	go consuFun("c1")
 	go consuFun("c2")
-	time.Sleep(4 * time.Second)
+	go consuFun("c3")
+	time.Sleep(3 * time.Second)
+	close(tmpChan)
+	//close(tmpChan)
+	//tmpChan <- 9
+	time.Sleep(10 * time.Second)
+
 }

@@ -7,6 +7,7 @@ import (
 )
 
 func handleCancelContext(ctx context.Context) {
+	fmt.Println(ctx,ctx.Done())
 	ttmpChan := make(chan int, 1)
 	go func() {
 		time.Sleep(1 * time.Minute)
@@ -22,25 +23,39 @@ func handleCancelContext(ctx context.Context) {
 	}
 }
 
-func main() {
+func testDefer()  {
+	defer fmt.Println("hello")
+	panic(1)
+}
 
-	tCtx, cancel := context.WithCancel(context.Background())
+func main() {
+	//cancelCtxUse()
+	testDefer()
+	time.Sleep(time.Minute)
+
+}
+
+func cancelCtxUse() {
+	parent := context.Background()
+	calCtx1, cancelFun := context.WithCancel(parent)
+	tCtx, cancel := context.WithCancel(calCtx1)
 	go handleCancelContext(tCtx)
 	go handleCancelContext(tCtx)
 	go handleCancelContext(tCtx)
 
 	go func() {
 		time.Sleep(3 * time.Second)
-		cancel()
+		if true {
+			cancel()
+		} else {
+			cancelFun()
+		}
 	}()
 
 	select {
 	case <-tCtx.Done():
 		fmt.Println("main ctx is done", tCtx.Err())
 	}
-
-	time.Sleep(time.Minute)
-
 }
 
 func timeoutCtxUsage() context.CancelFunc {
