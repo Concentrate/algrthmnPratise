@@ -66,11 +66,35 @@ func rangeUseChannelConsume() {
 	waitDone.Wait()
 }
 
+/*channel 里面传递channel*/
+func channelPassChannel() {
+
+	tmpChan := make(chan chan int, 3)
+	subChan := make(chan int, 2)
+	intchanFun := func(aChan chan<- int) {
+		for i := 0; i < 5; i++ {
+			aChan <- i
+		}
+	}
+	go intchanFun(subChan)
+	outChanFun := func(bChan <-chan chan int) {
+
+		cSubChan := <-bChan
+		for a1 := 0; a1 < 3; a1++ {
+			fmt.Println(<-cSubChan)
+		}
+	}
+	tmpChan <- subChan
+	go outChanFun(tmpChan)
+
+}
+
 func main() {
 	//withoutBuffer()
-	withBuffer()
+	//withBuffer()
 	//selectAndDefaultUse()
 	//rangeUseChannelConsume()
+	channelPassChannel()
 	time.Sleep(time.Minute)
 }
 
