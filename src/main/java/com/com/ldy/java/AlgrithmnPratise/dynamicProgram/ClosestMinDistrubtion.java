@@ -27,6 +27,8 @@ public class ClosestMinDistrubtion {
     }
 
 
+
+
     int minGapDistrubution(int step, int disOneValue) {
         if (step >= value.length) {
             if (Math.abs(total - disOneValue - disOneValue) < minDifference) {
