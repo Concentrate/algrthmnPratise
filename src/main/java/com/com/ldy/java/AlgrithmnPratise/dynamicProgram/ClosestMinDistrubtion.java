@@ -73,7 +73,7 @@ public class ClosestMinDistrubtion {
             V[i]=new int[total+1];
         }
         for(int i=0;i<=total;i++){
-            V[0][i]=Math.abs(total-i-i);
+            V[0][i]=Math.abs(total-2*i);
         }
         for(int i=0;i<=num;i++){
             V[i][0]=total;
