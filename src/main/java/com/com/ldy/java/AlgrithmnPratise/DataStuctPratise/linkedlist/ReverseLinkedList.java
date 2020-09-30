@@ -55,7 +55,7 @@ public class ReverseLinkedList {
     }
 
     public static void main(String[] argv) {
-        ReverseLinkedListMethod reverseLinkedList = new ReverseLinkedListMethod();
+        ReverseLinkedList reverseLinkedList = new ReverseLinkedList();
         Node head = NodeUtils.createRandomeList(20);
         printNodeListRe(head, reverseLinkedList::reverseNodeListRecursive);
         head=NodeUtils.createRandomeList(20);
