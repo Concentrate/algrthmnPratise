@@ -9,10 +9,11 @@ import java.util.*;
 /**
  * removed repeated node,without order
  */
+
 public class RemoveRepeatedNode<T> {
 
 
-    class RecordRepeateNode<T> {
+    public class RecordRepeateNode<T> {
         Node<T> last;
         Node<T> current;
 

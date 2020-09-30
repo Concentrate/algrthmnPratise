@@ -7,9 +7,10 @@ import java.util.function.Function;
  */
 
 /** 翻转链表，递归非递归*/
-public class ReverseLinkedListMethod {
+public class ReverseLinkedList {
 
 
+    /**写得不够简洁，评论于2020年9月29日*/
     Node<Integer> reverseNodeListRecursive(Node<Integer> head) {
         if (head == null || head.next == null) {
             return head;
@@ -54,10 +55,10 @@ public class ReverseLinkedListMethod {
     }
 
     public static void main(String[] argv) {
-        ReverseLinkedListMethod reverseLinkedListMethod = new ReverseLinkedListMethod();
+        ReverseLinkedListMethod reverseLinkedList = new ReverseLinkedListMethod();
         Node head = NodeUtils.createRandomeList(20);
-        printNodeListRe(head,reverseLinkedListMethod::reverseNodeListRecursive);
+        printNodeListRe(head, reverseLinkedList::reverseNodeListRecursive);
         head=NodeUtils.createRandomeList(20);
-        printNodeListRe(head,reverseLinkedListMethod::withoutRecursiveReverse);
+        printNodeListRe(head, reverseLinkedList::withoutRecursiveReverse);
     }
 }
