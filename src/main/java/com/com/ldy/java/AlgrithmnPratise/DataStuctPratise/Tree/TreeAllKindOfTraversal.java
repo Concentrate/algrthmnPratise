@@ -5,6 +5,8 @@ import java.util.LinkedList;
 /**
  * Created by liudeyu on 2017/7/15.
  */
+
+/**遍历方式*/
 public class TreeAllKindOfTraversal {
     private static int INVAILD_NUM = 1 << 20;
 

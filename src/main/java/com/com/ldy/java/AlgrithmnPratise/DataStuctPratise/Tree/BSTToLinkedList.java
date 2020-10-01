@@ -14,6 +14,40 @@ public class BSTToLinkedList {
         return head;
     }
 
+
+    LinkedListNode<TreeNode> convertToList(TreeNode<Integer> bst) {
+
+        if (bst == null) {
+            return null;
+        }
+        LinkedListNode<TreeNode> linkedListNode = new LinkedListNode<>();
+        linkedListNode.node = bst;
+        LinkedListNode<TreeNode> leftList = convertTreeToLinkedList(bst.left);
+        LinkedListNode<TreeNode> rightList = convertTreeToLinkedList(bst.right);
+        linkedListNode.before = leftList;
+        linkedListNode.next = rightList;
+       // 牛批
+
+        if (leftList != null) {
+            LinkedListNode tmp = leftList;
+            while (tmp.next != null) {
+                tmp = tmp.next;
+            }
+            tmp.next = linkedListNode;
+        }
+        if (rightList != null) {
+            rightList.before = linkedListNode;
+        }
+
+        LinkedListNode head = leftList;
+        if (head == null) {
+            head = linkedListNode;
+        }
+
+        return head;
+
+    }
+
     LinkedListNode<TreeNode> toConstructLinkedList(TreeNode<Integer> bst) {
         if (bst == null) {
             return null;
@@ -51,8 +85,11 @@ public class BSTToLinkedList {
     public static void main(String[] argv) {
 
         BSTToLinkedList bstToLinkedList = new BSTToLinkedList();
-        LinkedListNode<TreeNode> linkedListNode = bstToLinkedList.convertTreeToLinkedList(TreeNode.getBSTRoundbin(30));
+        TreeNode bstTree = TreeNode.getBSTRoundbin(30);
+        LinkedListNode<TreeNode> linkedListNode = bstToLinkedList.convertTreeToLinkedList(bstTree);
         LinkedListNodeUtils.printList(linkedListNode, "<->");
+        TreeNode bst2 = TreeNode.getBSTRoundbin(32);
+        LinkedListNodeUtils.printList(bstToLinkedList.convertToList(bst2), "<->");
 
     }
 

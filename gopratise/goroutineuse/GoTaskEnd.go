@@ -35,7 +35,26 @@ func doSomejob2(context context.Context, wg *sync.WaitGroup) {
 }
 func main() {
 	//contextSignal()
-	contextNotify()
+	//contextNotify()
+
+	tmpArr := []interface{}{}
+	tmpArr = append(tmpArr, 1)
+	tmpArr = append(tmpArr, "ok")
+	tmpArr = append(tmpArr, []int{2, 3, 4})
+	fmt.Printf("%v\n", tmpArr)
+
+	var emptyMap map[string]int
+	var initMap = make(map[string]int)
+	//emptyMap["ok"]=1
+	initMap["init"] = 2
+	initMap["ok"] = 4
+	delete(initMap, "init")
+	for k, v := range initMap {
+		fmt.Printf("%v  ,%v\n", k, v)
+	}
+	_,texist := initMap["fine"]
+	fmt.Printf("exists find key is %v\n",texist)
+	fmt.Printf("%v ,%v,not init map is nil %v \n", emptyMap, initMap, emptyMap == nil)
 }
 
 func contextSignal() {

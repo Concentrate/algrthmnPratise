@@ -6,13 +6,17 @@ import java.util.List;
 /**
  * Created by liudeyu on 2020/2/23.
  */
+
+/**
+ * 最长的回文子串
+ */
 public class LongestPadlineSubString {
 
     public String longestPalindrome(String s) {
         if (s == null || s.length() <= 1) {
             return s;
         }
-        if(isPalindrome(s,0,s.length()-1)){
+        if (isPalindrome(s, 0, s.length() - 1)) {
             return s;
         }
 
@@ -39,14 +43,14 @@ public class LongestPadlineSubString {
 
 
     public String longestPalindrome2(String s) {
-       if(s==null||s.length()<=1){
-           return s;
-       }
-       if(isPalindrome(s,0,s.length()-1)){
-           return s;
-       }
+        if (s == null || s.length() <= 1) {
+            return s;
+        }
+        if (isPalindrome(s, 0, s.length() - 1)) {
+            return s;
+        }
 
-    return "";
+        return "";
     }
 
 
