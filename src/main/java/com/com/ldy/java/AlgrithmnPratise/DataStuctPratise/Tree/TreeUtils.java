@@ -40,6 +40,37 @@ public class TreeUtils {
         }
     }
 
+    public static void printTree(com.com.ldy.java.AlgrithmnPratise.letcodepratise.pojo.TreeNode tree) {
+        if (tree == null) {
+            return;
+        }
+        Queue<com.com.ldy.java.AlgrithmnPratise.letcodepratise.pojo.TreeNode> tmpQueue = new LinkedList<>();
+        tmpQueue.offer(tree);
+
+        int parentNodeCount = 1;
+        int childNodeCount = 0;
+        while (!tmpQueue.isEmpty()) {
+            com.com.ldy.java.AlgrithmnPratise.letcodepratise.pojo.TreeNode curVa = tmpQueue.poll();
+            if (curVa.left != null) {
+                tmpQueue.offer(curVa.left);
+                childNodeCount++;
+
+            }
+            if (curVa.right != null) {
+                tmpQueue.offer(curVa.right);
+                childNodeCount++;
+
+            }
+            System.out.print(curVa.val +" ");
+            parentNodeCount--;
+            if (parentNodeCount == 0) {
+                parentNodeCount = childNodeCount;
+                childNodeCount = 0;
+                System.out.println();
+            }
+        }
+    }
+
     private static void printNodeValueWithLineNum(Object value, int line, int totalLines) {
         int cacluSpace = 1 << totalLines;
         int spaceNum = 1 << (totalLines - line);

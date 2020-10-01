@@ -1,5 +1,6 @@
 package com.com.ldy.java.AlgrithmnPratise.letcodepratise.tree;
 
+import com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.Tree.TreeUtils;
 import com.com.ldy.java.AlgrithmnPratise.letcodepratise.pojo.TreeNode;
 
 import java.util.*;
@@ -8,11 +9,14 @@ import java.util.*;
  * Created by liudeyu on 2020/1/30.
  *
  * @link https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/
+ * 最深公共子节点
  */
 public class FindDeepCommonParent {
 
 
-    /**not right*/
+    /**
+     * not right
+     */
     public TreeNode lowestCommonAncestor3(TreeNode root, TreeNode p, TreeNode q) {
 
         if (root == null) {
@@ -39,7 +43,7 @@ public class FindDeepCommonParent {
                 break;
             } else if (tmpNode.left == null && tmpNode.right == null) {
                 treeNodes.remove(tmpNode);
-                removeFromEndExcept(treeNodes,root);
+                removeFromEndExcept(treeNodes, root);
             }
             if (tmpNode.right != null) {
                 stack.push(tmpNode.right);
@@ -128,12 +132,39 @@ public class FindDeepCommonParent {
         parentAndSelfNode.removeAll(remove);
     }
 
+
+    /**
+     * add by liudeyu 2020, 定义好子问题，找到一个就算
+     */
+    public TreeNode findDeepCommonParent(TreeNode root, TreeNode first, TreeNode second) {
+        if (root == null) {
+            return null;
+        }
+
+        if (root.equals(first) || root.equals(second)) {
+            return root;
+        }
+
+        TreeNode tmp = findDeepCommonParent(root.left, first, second);
+        TreeNode tmp2 = findDeepCommonParent(root.right, first, second);
+        if (tmp != null && tmp2 != null) {
+            return root;
+        } else if (tmp == null) {
+            return tmp2;
+        } else {
+            return tmp;
+        }
+    }
+
     public static void main(String[] argv) {
 
         FindDeepCommonParent findDeepCommonParent = new FindDeepCommonParent();
         TreeNode root = new TreeNode(3).setLeft(new TreeNode(5).setLeft(new TreeNode(6)).setRight(new TreeNode(2).setLeft(new TreeNode(7)).setRight(new TreeNode(4))))
                 .setRight(new TreeNode(1).setLeft(new TreeNode(0)).setRight(new TreeNode(8)));
-        System.out.println(findDeepCommonParent.lowestCommonAncestor3(root, new TreeNode(5), new TreeNode(1)));
+        TreeUtils.printTree(root);
+//        System.out.println(findDeepCommonParent.lowestCommonAncestor3(root, new TreeNode(7), new TreeNode(4)));
+        System.out.println("result is ");
+        System.out.println(findDeepCommonParent.findDeepCommonParent(root, new TreeNode(6), new TreeNode(4)));
 
 
     }

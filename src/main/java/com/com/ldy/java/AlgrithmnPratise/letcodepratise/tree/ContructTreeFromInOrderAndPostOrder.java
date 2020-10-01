@@ -11,6 +11,7 @@ import java.util.Map;
 
 /**
  * @link https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
+ * 中序后序遍历，构建二叉树
  */
 public class ContructTreeFromInOrderAndPostOrder {
 

@@ -24,6 +24,14 @@ public class TreeNode {
     public TreeNode() {
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof TreeNode)) {
+            return false;
+        }
+        return val == ((TreeNode) obj).val;
+    }
+
     public TreeNode(Integer val) {
         this.val = val;
     }

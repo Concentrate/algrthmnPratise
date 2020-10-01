@@ -5,6 +5,10 @@ import com.com.ldy.java.AlgrithmnPratise.letcodepratise.pojo.TreeNode;
 /**
  * Created by liudeyu on 2020/1/30.
  */
+
+/**
+ * 先序和中序遍历，构建二叉树
+ */
 public class ConstructPreOrderTravel {
 
     public TreeNode buildTree(int[] preorder, int[] inorder) {
@@ -22,8 +26,8 @@ public class ConstructPreOrderTravel {
         int midPos = iStart;
         while (midPos <= iEnd && inorder[midPos] != root.val) midPos++;
         int leftTreeNum = midPos - iStart;
-        root.left = toBuildTree(iStart, midPos - 1, inorder, pStart+1,pStart+leftTreeNum, preorder);
-        root.right = toBuildTree(midPos + 1, iEnd, inorder, pStart + leftTreeNum+1, pEnd, preorder);
+        root.left = toBuildTree(iStart, midPos - 1, inorder, pStart + 1, pStart + leftTreeNum, preorder);
+        root.right = toBuildTree(midPos + 1, iEnd, inorder, pStart + leftTreeNum + 1, pEnd, preorder);
         return root;
     }
 
