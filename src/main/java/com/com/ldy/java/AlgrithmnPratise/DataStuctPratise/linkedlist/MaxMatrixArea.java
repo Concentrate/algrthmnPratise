@@ -6,6 +6,9 @@ package com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.linkedlist;
  */
 
 
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Set;
 
 /**
@@ -35,11 +38,33 @@ public class MaxMatrixArea {
         return maxArea;
     }
 
+
+    int maxMatrixArea2(int[] tmpArr) {
+        if (tmpArr == null || tmpArr.length == 0) {
+            return 0;
+        }
+        int result = 0;
+
+        Deque<Integer> deque = new LinkedList<>();
+
+        for (int i = 0; i < tmpArr.length; i++) {
+
+            while (deque.size() != 0 && tmpArr[deque.peekLast()] > tmpArr[i]) {
+                int pos = deque.pop();
+                result = Math.max(result, (i - pos + 1) * tmpArr[pos]);
+            }
+            deque.push(i);
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
 
 
         MaxMatrixArea maxMatrixArea = new MaxMatrixArea();
-        int[] tmpInput = {4,2,0,3,2,5};
+        int[] tmpInput = {4, 2, 0, 3, 2, 5};
         System.out.println(maxMatrixArea.maxMatrixArea(tmpInput));
+        System.out.println(maxMatrixArea.maxMatrixArea2(tmpInput));
+
     }
 }
