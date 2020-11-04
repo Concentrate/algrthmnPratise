@@ -35,10 +35,10 @@ class Tree {
         }
         Node a1 = new Node();
         a1.value = i;
-        double time=Math.random();
+        double time = Math.random();
         if (time < 0.3) {
             a1.left = toImplementCreateTree(i + 1, maxNum);
-        }else if(time<0.8) {
+        } else if (time < 0.8) {
             a1.right = toImplementCreateTree(i + 1, maxNum);
         }
 

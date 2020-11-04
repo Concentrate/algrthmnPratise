@@ -30,7 +30,7 @@ public class TreeUtils {
                 childNodeCount++;
 
             }
-            System.out.print(curVa.val +" ");
+            System.out.print(curVa.val + " ");
             parentNodeCount--;
             if (parentNodeCount == 0) {
                 parentNodeCount = childNodeCount;
@@ -61,7 +61,7 @@ public class TreeUtils {
                 childNodeCount++;
 
             }
-            System.out.print(curVa.val +" ");
+            System.out.print(curVa.val + " ");
             parentNodeCount--;
             if (parentNodeCount == 0) {
                 parentNodeCount = childNodeCount;
@@ -106,5 +106,30 @@ public class TreeUtils {
             }
         }
         return lines;
+    }
+
+    public static TreeNode<Integer> createTreeofN(int n) {
+        return toImplementCreateTree(1, n);
+    }
+
+    private static TreeNode<Integer> toImplementCreateTree(int i, int maxNum) {
+        if (i > maxNum) {
+            return null;
+        }
+        TreeNode a1 = new TreeNode<Integer>();
+        a1.val = i;
+        double time = Math.random();
+        if (time <= 0.3) {
+            a1.left = toImplementCreateTree(i + 1, maxNum);
+
+        } else if (time <= 0.6) {
+            a1.right = toImplementCreateTree(i + 1, maxNum);
+        }else{
+            a1.left = toImplementCreateTree(i + 1, maxNum);
+            a1.right = toImplementCreateTree(i + 1, maxNum);
+
+        }
+
+        return a1;
     }
 }

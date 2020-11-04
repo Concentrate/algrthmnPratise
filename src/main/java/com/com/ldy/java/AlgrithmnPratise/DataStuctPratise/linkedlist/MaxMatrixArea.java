@@ -6,16 +6,14 @@ package com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.linkedlist;
  */
 
 
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Set;
+import java.util.*;
 
 /**
  * 给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。
  * <p>
  * 求在该柱状图中，能够勾勒出来的矩形的最大面积。
  */
+
 public class MaxMatrixArea {
 
 
@@ -45,18 +43,69 @@ public class MaxMatrixArea {
         }
         int result = 0;
 
-        Deque<Integer> deque = new LinkedList<>();
-
+//        Deque<Integer> deque = new LinkedList<>();
+        Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < tmpArr.length; i++) {
 
-            while (deque.size() != 0 && tmpArr[deque.peekLast()] > tmpArr[i]) {
-                int pos = deque.pop();
-                result = Math.max(result, (i - pos + 1) * tmpArr[pos]);
+            while (stack.size() != 0 && tmpArr[stack.peek()] >= tmpArr[i]) {
+                int pos = stack.pop();
+                int tempMax = tmpArr[pos] * (stack.isEmpty() ? i : i - stack.peek() - 1);
+                result = Math.max(result, tempMax);
             }
-            deque.push(i);
+
+            stack.push(i);
         }
         return result;
     }
+
+    public int largestRectangleArea(int[] heights) {
+
+        int n = heights.length;
+        // Store indices.
+        ArrayDeque<Integer> stack = new ArrayDeque<>();
+
+        int[] left = buildLeftBound(heights, stack);
+        int[] right = buildRightBound(heights, stack);
+
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            int currHeightMax = heights[i] * (right[i] - left[i] - 1);
+            System.out.println(String.format("当前 hight 最高的 的为 %s , 两边间距为 %s ,面积为 %s",
+                    heights[i], (right[i] - left[i] - 1), currHeightMax));
+            ans = Math.max(ans, currHeightMax);
+        }
+        return ans;
+    }
+
+    private int[] buildLeftBound(int[] h, ArrayDeque<Integer> stack) {
+        int n = h.length;
+        int[] ans = new int[n];
+        for (int i = 0; i < n; i++) {
+            int cur = h[i];
+            while (!stack.isEmpty() && h[stack.peek()] >= cur) {
+                stack.pop();
+            }
+            ans[i] = stack.isEmpty() ? -1 : stack.peek();
+            stack.push(i);
+        }
+        return ans;
+    }
+
+    private int[] buildRightBound(int[] h, ArrayDeque<Integer> stack) {
+        stack.clear();
+        int n = h.length;
+        int[] ans = new int[n];
+        for (int i = n - 1; i >= 0; i--) {
+            int cur = h[i];
+            while (!stack.isEmpty() && h[stack.peek()] >= cur) {
+                stack.pop();
+            }
+            ans[i] = stack.isEmpty() ? n : stack.peek();
+            stack.push(i);
+        }
+        return ans;
+    }
+
 
     public static void main(String[] args) {
 
@@ -65,6 +114,7 @@ public class MaxMatrixArea {
         int[] tmpInput = {4, 2, 0, 3, 2, 5};
         System.out.println(maxMatrixArea.maxMatrixArea(tmpInput));
         System.out.println(maxMatrixArea.maxMatrixArea2(tmpInput));
+        System.out.println(maxMatrixArea.largestRectangleArea(tmpInput));
 
     }
 }
