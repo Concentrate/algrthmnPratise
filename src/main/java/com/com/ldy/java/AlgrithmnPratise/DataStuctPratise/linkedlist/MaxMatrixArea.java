@@ -52,10 +52,52 @@ public class MaxMatrixArea {
                 int tempMax = tmpArr[pos] * (stack.isEmpty() ? i : i - stack.peek() - 1);
                 result = Math.max(result, tempMax);
             }
-
             stack.push(i);
         }
         return result;
+    }
+
+
+    private int[] getMyLeftFirstSmallIndex(int[] heights) {
+
+        if (heights == null || heights.length == 0) {
+            return heights;
+        }
+
+        Stack<Integer> stack = new Stack<>();
+        int[] ans = new int[heights.length];
+        for (int i = 0; i < heights.length; i++) {
+
+            int curHeight = heights[i];
+
+            // 这里是最妙的，递增栈， 中间弹掉了一些比当前大的，但还是递增栈,被弹掉的都是较大的值
+            while (stack.size() != 0 && heights[stack.peek()] >= curHeight) {
+                stack.pop();
+            }
+            ans[i] = stack.isEmpty() ? -1 : stack.peek();
+            stack.push(i);
+
+        }
+        return ans;
+
+    }
+
+    private int[] getRightFirstSmall(int[] heights) {
+        if (heights == null || heights.length == 0) {
+            return heights;
+        }
+
+        Stack<Integer> stack = new Stack<>();
+        int[] ans = new int[heights.length];
+        for (int i = heights.length - 1; i >= 0; i--) {
+
+            while (!stack.isEmpty() && heights[stack.peek()] >= heights[i]) {
+                stack.pop();
+            }
+            ans[i] = stack.isEmpty() ? heights.length : stack.peek();
+            stack.push(i);
+        }
+        return ans;
     }
 
     public int largestRectangleArea(int[] heights) {
@@ -64,8 +106,8 @@ public class MaxMatrixArea {
         // Store indices.
         ArrayDeque<Integer> stack = new ArrayDeque<>();
 
-        int[] left = buildLeftBound(heights, stack);
-        int[] right = buildRightBound(heights, stack);
+        int[] left = getMyLeftFirstSmallIndex(heights);
+        int[] right = getRightFirstSmall(heights);
 
         int ans = 0;
         for (int i = 0; i < n; i++) {

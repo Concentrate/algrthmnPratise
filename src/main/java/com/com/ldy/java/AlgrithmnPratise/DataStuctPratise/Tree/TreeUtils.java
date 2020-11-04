@@ -122,7 +122,7 @@ public class TreeUtils {
         if (time <= 0.3) {
             a1.left = toImplementCreateTree(i + 1, maxNum);
 
-        } else if (time <= 0.6) {
+        } else if (time <= 0.8) {
             a1.right = toImplementCreateTree(i + 1, maxNum);
         }else{
             a1.left = toImplementCreateTree(i + 1, maxNum);
