@@ -4,6 +4,7 @@ package com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.Tree;
  * Created by liudeyu on 2019/12/2.
  */
 
+import com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.Tree.generalTreeNode.TreeNode;
 import com.com.ldy.java.common.CollectionUtil;
 
 import java.util.*;

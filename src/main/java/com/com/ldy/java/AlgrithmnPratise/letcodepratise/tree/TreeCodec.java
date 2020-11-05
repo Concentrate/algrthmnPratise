@@ -1,6 +1,6 @@
 package com.com.ldy.java.AlgrithmnPratise.letcodepratise.tree;
 
-import com.com.ldy.java.AlgrithmnPratise.letcodepratise.pojo.TreeNode;
+import com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.Tree.IntegerTreeNode.TreeNode;
 
 import java.util.LinkedList;
 import java.util.List;

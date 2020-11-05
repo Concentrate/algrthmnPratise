@@ -1,4 +1,6 @@
-package com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.Tree;
+package com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.Tree.generalTreeNode;
+
+import com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.Tree.TreeUtils;
 
 /**
  * Created by liudeyu on 2019/12/2.

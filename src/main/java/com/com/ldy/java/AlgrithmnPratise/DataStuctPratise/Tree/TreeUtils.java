@@ -1,5 +1,7 @@
 package com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.Tree;
 
+import com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.Tree.generalTreeNode.TreeNode;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -7,6 +9,8 @@ import java.util.Queue;
  * Created by liudeyu on 2019/12/2.
  */
 public class TreeUtils {
+
+
 
 
     public static void printTree(TreeNode tree) {
@@ -40,17 +44,17 @@ public class TreeUtils {
         }
     }
 
-    public static void printTree(com.com.ldy.java.AlgrithmnPratise.letcodepratise.pojo.TreeNode tree) {
+    public static void printTree(com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.Tree.IntegerTreeNode.TreeNode tree) {
         if (tree == null) {
             return;
         }
-        Queue<com.com.ldy.java.AlgrithmnPratise.letcodepratise.pojo.TreeNode> tmpQueue = new LinkedList<>();
+        Queue<com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.Tree.IntegerTreeNode.TreeNode> tmpQueue = new LinkedList<>();
         tmpQueue.offer(tree);
 
         int parentNodeCount = 1;
         int childNodeCount = 0;
         while (!tmpQueue.isEmpty()) {
-            com.com.ldy.java.AlgrithmnPratise.letcodepratise.pojo.TreeNode curVa = tmpQueue.poll();
+            com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.Tree.IntegerTreeNode.TreeNode curVa = tmpQueue.poll();
             if (curVa.left != null) {
                 tmpQueue.offer(curVa.left);
                 childNodeCount++;
@@ -109,7 +113,7 @@ public class TreeUtils {
     }
 
 
-    public static TreeNode<Integer> createLevelTravelTree(Integer[] treeArray) {
+    public static TreeNode createLevelTravelTree(Integer[] treeArray) {
 
         Queue<TreeNode> queue = new LinkedList<>();
         TreeNode<Integer> tmpRoot = new TreeNode<>();
@@ -125,6 +129,7 @@ public class TreeUtils {
         return tmpRoot;
 
     }
+
 
     public static TreeNode<Integer> randomCreateTreeofN(int n) {
         return toImplementCreateTree(1, n);

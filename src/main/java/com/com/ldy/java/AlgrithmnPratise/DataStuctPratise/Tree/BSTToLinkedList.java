@@ -1,5 +1,6 @@
 package com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.Tree;
 
+import com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.Tree.generalTreeNode.TreeNode;
 import com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.list.LinkedListNode;
 import com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.list.LinkedListNodeUtils;
 

@@ -1,6 +1,6 @@
 package com.com.ldy.java.AlgrithmnPratise.letcodepratise.tree;
 
-import com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.Tree.TreeNode;
+import com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.Tree.generalTreeNode.TreeNode;
 import com.com.ldy.java.Util.ArrayUtils;
 
 import java.util.*;

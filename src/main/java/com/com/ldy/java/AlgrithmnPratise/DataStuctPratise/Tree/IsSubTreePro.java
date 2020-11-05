@@ -5,6 +5,8 @@ package com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.Tree;
  * @date: 2020/11/5
  */
 
+import com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.Tree.IntegerTreeNode.TreeNode;
+
 /**
  * 判断是否是子树
  */
@@ -20,14 +22,14 @@ public class IsSubTreePro {
             return false;
         }
 
-        if (left.val == null) {
-            if (right.val == null) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-        return left.val.equals(right.val) && isEqualTree(left.left, right.left) && isEqualTree(left.right, right.right);
+//        if (left.val == null) {
+//            if (right.val == null) {
+//                return true;
+//            } else {
+//                return false;
+//            }
+//        }
+        return left.val == right.val && isEqualTree(left.left, right.left) && isEqualTree(left.right, right.right);
     }
 
 
@@ -52,12 +54,12 @@ public class IsSubTreePro {
         IsSubTreePro treePro = new IsSubTreePro();
         Integer[] tmpArr = new Integer[]{3, 4, 5, 1, 2, null, null, null, 0};
         Integer[] subArr = new Integer[]{4, 1, 2};
-        TreeNode parent = TreeUtils.createLevelTravelTree(tmpArr);
-        TreeNode son = TreeUtils.createLevelTravelTree(subArr);
-        TreeUtils.printTree(parent);
-        TreeUtils.printTree(son);
-
-        System.out.println("is sub Tree " + treePro.isSubTree(parent, son));
+//        TreeNode parent = TreeUtils.createLevelTravelTree(tmpArr);
+//        TreeNode son = TreeUtils.createLevelTravelTree(subArr);
+//        TreeUtils.printTree(parent);
+//        TreeUtils.printTree(son);
+//
+//        System.out.println("is sub Tree " + treePro.isSubTree(parent, son));
 
     }
 }
