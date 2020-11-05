@@ -12,6 +12,36 @@ public class TreeUtils {
 
 
 
+    public static void printTree(com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.Tree.inttreenode.TreeNode tree){
+        if (tree == null) {
+            return;
+        }
+        Queue<com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.Tree.inttreenode.TreeNode> tmpQueue = new LinkedList<>();
+        tmpQueue.offer(tree);
+
+        int parentNodeCount = 1;
+        int childNodeCount = 0;
+        while (!tmpQueue.isEmpty()) {
+            com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.Tree.inttreenode.TreeNode curVa = tmpQueue.poll();
+            if (curVa.left != null) {
+                tmpQueue.offer(curVa.left);
+                childNodeCount++;
+
+            }
+            if (curVa.right != null) {
+                tmpQueue.offer(curVa.right);
+                childNodeCount++;
+
+            }
+            System.out.print(curVa.val + " ");
+            parentNodeCount--;
+            if (parentNodeCount == 0) {
+                parentNodeCount = childNodeCount;
+                childNodeCount = 0;
+                System.out.println();
+            }
+        }
+    }
 
     public static void printTree(TreeNode tree) {
         if (tree == null) {
