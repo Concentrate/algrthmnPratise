@@ -108,7 +108,25 @@ public class TreeUtils {
         return lines;
     }
 
-    public static TreeNode<Integer> createTreeofN(int n) {
+
+    public static TreeNode<Integer> createLevelTravelTree(Integer[] treeArray) {
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        TreeNode<Integer> tmpRoot = new TreeNode<>();
+        queue.offer(tmpRoot);
+        for (Integer num : treeArray) {
+            TreeNode<Integer> cur = queue.poll();
+            cur.val = num;
+            cur.left = new TreeNode<>();
+            cur.right = new TreeNode<>();
+            queue.offer(cur.left);
+            queue.offer(cur.right);
+        }
+        return tmpRoot;
+
+    }
+
+    public static TreeNode<Integer> randomCreateTreeofN(int n) {
         return toImplementCreateTree(1, n);
     }
 
@@ -124,7 +142,7 @@ public class TreeUtils {
 
         } else if (time <= 0.8) {
             a1.right = toImplementCreateTree(i + 1, maxNum);
-        }else{
+        } else {
             a1.left = toImplementCreateTree(i + 1, maxNum);
             a1.right = toImplementCreateTree(i + 1, maxNum);
 

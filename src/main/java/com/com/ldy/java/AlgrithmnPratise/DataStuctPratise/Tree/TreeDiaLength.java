@@ -30,7 +30,7 @@ public class TreeDiaLength {
     public static void main(String[] args) {
 
         TreeDiaLength treeDiaLength = new TreeDiaLength();
-        TreeNode treeNode = TreeUtils.createTreeofN(12);
+        TreeNode treeNode = TreeUtils.randomCreateTreeofN(12);
         TreeUtils.printTree(treeNode);
         System.out.println("tree Dia Length is " + treeDiaLength.diaLength(treeNode));
 

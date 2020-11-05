@@ -6,11 +6,49 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="jetcache-starter-redis-springdata" />
+        <module name="jetcache-redis-lettuce" />
+        <module name="jetcache-core" />
+        <module name="jetcache-redis-springdata" />
+        <module name="jetcache-test" />
+        <module name="jetcache-anno-api" />
+        <module name="jetcache-starter-redis" />
+        <module name="jetcache-starter-redis-lettuce" />
+        <module name="jetcache-autoconfigure" />
         <module name="JavaPratise" />
+        <module name="jetcache-anno" />
+        <module name="jetcache-redis" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="JavaPratise" target="1.8" />
+      <module name="jetcache-anno" target="1.8" />
+      <module name="jetcache-anno-api" target="1.8" />
+      <module name="jetcache-autoconfigure" target="1.8" />
+      <module name="jetcache-core" target="1.8" />
+      <module name="jetcache-parent" target="1.8" />
+      <module name="jetcache-redis" target="1.8" />
+      <module name="jetcache-redis-lettuce" target="1.8" />
+      <module name="jetcache-redis-springdata" target="1.8" />
+      <module name="jetcache-starter-redis" target="1.8" />
+      <module name="jetcache-starter-redis-lettuce" target="1.8" />
+      <module name="jetcache-starter-redis-springdata" target="1.8" />
+      <module name="jetcache-test" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="jetcache-anno" options="-parameters" />
+      <module name="jetcache-anno-api" options="-parameters" />
+      <module name="jetcache-autoconfigure" options="-parameters" />
+      <module name="jetcache-core" options="-parameters" />
+      <module name="jetcache-redis" options="-parameters" />
+      <module name="jetcache-redis-lettuce" options="-parameters" />
+      <module name="jetcache-redis-springdata" options="-parameters" />
+      <module name="jetcache-starter-redis" options="-parameters" />
+      <module name="jetcache-starter-redis-lettuce" options="-parameters" />
+      <module name="jetcache-starter-redis-springdata" options="-parameters" />
+      <module name="jetcache-test" options="-parameters" />
+    </option>
   </component>
 </project>

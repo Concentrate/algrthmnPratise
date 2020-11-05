@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-anno-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-anno/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-anno/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-starter/jetcache-autoconfigure/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-starter/jetcache-autoconfigure/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-support/jetcache-redis-lettuce/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-support/jetcache-redis-springdata/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-support/jetcache-redis/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-test/src/main/java" charset="UTF-8" />
+  </component>
+</project>
