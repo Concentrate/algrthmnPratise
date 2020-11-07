@@ -15,7 +15,6 @@
 
 
     <build>
-        <testSourceDirectory>src/main/test</testSourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>
@@ -82,6 +81,8 @@
             <artifactId>guava</artifactId>
             <version>RELEASE</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+
 
         <!-- https://mvnrepository.com/artifact/com.cedarsoftware/java-util -->
         <dependency>
@@ -95,6 +96,8 @@
             <artifactId>jsoup</artifactId>
             <version>1.11.2</version>
         </dependency>
+
+
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpcore</artifactId>
@@ -110,7 +113,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.30</version>
+            <version>RELEASE</version>
         </dependency>
 
         <dependency>

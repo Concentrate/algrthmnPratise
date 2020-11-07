@@ -7,16 +7,16 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="jetcache-starter-redis-springdata" />
-        <module name="jetcache-redis-lettuce" />
-        <module name="jetcache-core" />
-        <module name="jetcache-redis-springdata" />
+        <module name="jetcache-anno" />
         <module name="jetcache-test" />
         <module name="jetcache-anno-api" />
-        <module name="jetcache-starter-redis" />
+        <module name="jetcache-redis-springdata" />
         <module name="jetcache-starter-redis-lettuce" />
         <module name="jetcache-autoconfigure" />
         <module name="JavaPratise" />
-        <module name="jetcache-anno" />
+        <module name="jetcache-core" />
+        <module name="jetcache-redis-lettuce" />
+        <module name="jetcache-starter-redis" />
         <module name="jetcache-redis" />
       </profile>
     </annotationProcessing>
