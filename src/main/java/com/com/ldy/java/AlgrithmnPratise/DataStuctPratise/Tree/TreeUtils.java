@@ -143,16 +143,16 @@ public class TreeUtils {
     }
 
 
-    public static TreeNode createLevelTravelTree(Integer[] treeArray) {
+    public static com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.Tree.IntegerTreeNode.TreeNode createLevelTravelTree(Integer[] treeArray) {
 
-        Queue<TreeNode> queue = new LinkedList<>();
-        TreeNode<Integer> tmpRoot = new TreeNode<>();
+        Queue<com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.Tree.IntegerTreeNode.TreeNode> queue = new LinkedList<>();
+        com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.Tree.IntegerTreeNode.TreeNode tmpRoot = new com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.Tree.IntegerTreeNode.TreeNode();
         queue.offer(tmpRoot);
         for (Integer num : treeArray) {
-            TreeNode<Integer> cur = queue.poll();
+            com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.Tree.IntegerTreeNode.TreeNode cur = queue.poll();
             cur.val = num;
-            cur.left = new TreeNode<>();
-            cur.right = new TreeNode<>();
+            cur.left = new com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.Tree.IntegerTreeNode.TreeNode();
+            cur.right = new com.com.ldy.java.AlgrithmnPratise.DataStuctPratise.Tree.IntegerTreeNode.TreeNode();
             queue.offer(cur.left);
             queue.offer(cur.right);
         }
