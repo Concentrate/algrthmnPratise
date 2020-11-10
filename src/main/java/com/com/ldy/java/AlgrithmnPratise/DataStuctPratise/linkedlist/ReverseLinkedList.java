@@ -6,11 +6,15 @@ import java.util.function.Function;
  * Created by liudeyu on 2019/11/15.
  */
 
-/** 翻转链表，递归非递归*/
+/**
+ * 翻转链表，递归非递归
+ */
 public class ReverseLinkedList {
 
 
-    /**写得不够简洁，评论于2020年9月29日*/
+    /**
+     * 写得不够简洁，评论于2020年9月29日
+     */
     Node<Integer> reverseNodeListRecursive(Node<Integer> head) {
         if (head == null || head.next == null) {
             return head;
@@ -36,7 +40,7 @@ public class ReverseLinkedList {
         }
         Node<Integer> preCur = head, endCur = null;
         Node<Integer> dector = head;
-        while (preCur.next!=endCur) {
+        while (preCur.next != endCur) {
             while (dector.next != endCur) {
                 dector = dector.next;
             }
@@ -44,21 +48,21 @@ public class ReverseLinkedList {
             dector = preCur.next;
             preCur.next = endCur;
             endCur = preCur;
-            preCur=dector;
+            preCur = dector;
         }
         return preCur;
     }
 
-    static void printNodeListRe(Node<Integer> head, Function<Node<Integer>,Node<Integer>> function){
+    static void printNodeListRe(Node<Integer> head, Function<Node<Integer>, Node<Integer>> function) {
         NodeUtils.pringNodeList(head);
         NodeUtils.pringNodeList(function.apply(head));
     }
 
     public static void main(String[] argv) {
         ReverseLinkedList reverseLinkedList = new ReverseLinkedList();
-        Node head = NodeUtils.createRandomeList(20);
+        Node head = NodeUtils.createRandomeList(20, true);
         printNodeListRe(head, reverseLinkedList::reverseNodeListRecursive);
-        head=NodeUtils.createRandomeList(20);
+        head = NodeUtils.createRandomeList(20, true);
         printNodeListRe(head, reverseLinkedList::withoutRecursiveReverse);
     }
 }

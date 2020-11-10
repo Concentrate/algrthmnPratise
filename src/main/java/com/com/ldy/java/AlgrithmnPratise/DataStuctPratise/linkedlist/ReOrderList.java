@@ -42,7 +42,7 @@ public class ReOrderList {
     public static void main(String[] args) {
 
 
-        Node randomList = NodeUtils.createRandomeList(11);
+        Node randomList = NodeUtils.createRandomeList(11, true);
         NodeUtils.pringNodeList(new ReOrderList().reorderList(randomList));
 
     }

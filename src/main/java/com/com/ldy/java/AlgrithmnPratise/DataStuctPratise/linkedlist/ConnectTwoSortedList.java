@@ -39,8 +39,8 @@ public class ConnectTwoSortedList {
 
     public static void main(String[] args) {
 
-        Node<Integer> list1 = NodeUtils.createRandomeList(10);
-        Node<Integer> list2 = NodeUtils.createRandomeList(10);
+        Node<Integer> list1 = NodeUtils.createRandomeList(10, true);
+        Node<Integer> list2 = NodeUtils.createRandomeList(10, true);
 
         NodeUtils.pringNodeList(new ConnectTwoSortedList().combineList(list1, list2));
     }
