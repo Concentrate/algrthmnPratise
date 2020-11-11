@@ -7,7 +7,7 @@ import (
 )
 
 func handleCancelContext(ctx context.Context) {
-	fmt.Println(ctx,ctx.Done())
+	fmt.Println(ctx, ctx.Done())
 	ttmpChan := make(chan int, 1)
 	go func() {
 		time.Sleep(1 * time.Minute)
@@ -23,14 +23,33 @@ func handleCancelContext(ctx context.Context) {
 	}
 }
 
-func testDefer()  {
+func testDefer() {
 	defer fmt.Println("hello")
 	panic(1)
 }
 
+func backgroundContextUse() {
+	tmpCtx := context.Background()
+	deadLineCtx,cancelFun:=context.WithDeadline(tmpCtx,time.Now().Add(time.Second*3))
+
+	go func(a context.Context) {
+		fmt.Printf("I am doing some job\n")
+		select {
+		case <-a.Done():
+			fmt.Printf("task done ,exit\n")
+
+		}
+	}(deadLineCtx)
+
+	time.Sleep(14 * time.Second)
+	cancelFun()
+	fmt.Printf("cancel fun")
+}
+
 func main() {
 	//cancelCtxUse()
-	testDefer()
+	//testDefer()
+	backgroundContextUse()
 	time.Sleep(time.Minute)
 
 }
