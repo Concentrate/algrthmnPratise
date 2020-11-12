@@ -90,11 +90,11 @@ func channelPassChannel() {
 }
 
 func main() {
-	//withoutBuffer()
+	withoutBuffer()
 	//withBuffer()
 	//selectAndDefaultUse()
 	//rangeUseChannelConsume()
-	channelPassChannel()
+	//channelPassChannel()
 	time.Sleep(time.Minute)
 }
 
@@ -111,12 +111,7 @@ func withoutBuffer() {
 func produceAndConsumer(buffer int) {
 	tmpChan := make(chan int, buffer)
 
-	//go func() {
-	//	for i := 0; i < 3; i++ {
-	//		tmpChan <- i
-	//		fmt.Printf("produce %v\n", i)
-	//	}
-	//}()
+
 
 	consuFun := func(tag string) {
 		select {
@@ -136,6 +131,7 @@ func produceAndConsumer(buffer int) {
 		}
 	}
 
+
 	fmt.Println(tmpChan)
 	go testChannelCopy(tmpChan)
 	go testChannelCopy(tmpChan)
@@ -144,9 +140,15 @@ func produceAndConsumer(buffer int) {
 	go consuFun("c2")
 	go consuFun("c3")
 	time.Sleep(3 * time.Second)
-	close(tmpChan)
+	//close(tmpChan)
 	//close(tmpChan)
 	//tmpChan <- 9
+	go func() {
+		for i := 0; i < 3; i++ {
+			tmpChan <- i
+			fmt.Printf("produce %v\n", i)
+		}
+	}()
 	time.Sleep(10 * time.Second)
 
 }

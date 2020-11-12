@@ -30,7 +30,7 @@ func testDefer() {
 
 func backgroundContextUse() {
 	tmpCtx := context.Background()
-	deadLineCtx,cancelFun:=context.WithDeadline(tmpCtx,time.Now().Add(time.Second*3))
+	deadLineCtx, cancelFun := context.WithDeadline(tmpCtx, time.Now().Add(time.Second*3))
 
 	go func(a context.Context) {
 		fmt.Printf("I am doing some job\n")
@@ -46,10 +46,41 @@ func backgroundContextUse() {
 	fmt.Printf("cancel fun")
 }
 
+func mutipleCancelContextUsage() {
+	paCancelCtx, paCanFun := context.WithCancel(context.Background())
+
+	subCancelCtx, _ := context.WithCancel(paCancelCtx)
+	subCancelCtx2, canFun2 := context.WithCancel(paCancelCtx)
+
+	grandSubCtx3, _ := context.WithCancel(subCancelCtx2)
+	var testSubContextUsageFun = func(tmp context.Context, tag string) {
+		fmt.Printf(tag+"   doing job %v\n", tmp)
+		select {
+		case <-tmp.Done():
+			//fmt.Printf("job done signal trigger\n")
+			fmt.Println(tag, "  ", tmp.Err())
+
+		}
+	}
+
+	go testSubContextUsageFun(subCancelCtx, "subCancelCtx")
+	go testSubContextUsageFun(subCancelCtx2, "subCancelCtx2")
+	go testSubContextUsageFun(grandSubCtx3, "grandSubCtx3")
+
+	time.Sleep(5 * time.Second)
+	canFun2()
+	time.Sleep(15 * time.Second)
+	fmt.Println("after 15 sec")
+
+	paCanFun()
+
+}
+
 func main() {
 	//cancelCtxUse()
 	//testDefer()
-	backgroundContextUse()
+	//backgroundContextUse()
+	mutipleCancelContextUsage()
 	time.Sleep(time.Minute)
 
 }
