@@ -23,7 +23,7 @@ func selectAndDefaultUse() {
 	go func() {
 		for {
 			select {
-			case a1 := <-tmpChan:
+			case a1,_ := <-tmpChan:
 				fmt.Printf("select case value is %v \n", a1)
 
 			case <-time.After(300 * time.Millisecond):
@@ -71,6 +71,7 @@ func channelPassChannel() {
 
 	tmpChan := make(chan chan int, 3)
 	subChan := make(chan int, 2)
+	close(tmpChan)
 	intchanFun := func(aChan chan<- int) {
 		for i := 0; i < 5; i++ {
 			aChan <- i
@@ -90,11 +91,11 @@ func channelPassChannel() {
 }
 
 func main() {
-	withoutBuffer()
+	//withoutBuffer()
 	//withBuffer()
-	//selectAndDefaultUse()
+	selectAndDefaultUse()
 	//rangeUseChannelConsume()
-	//channelPassChannel()
+	channelPassChannel()
 	time.Sleep(time.Minute)
 }
 
@@ -105,13 +106,11 @@ func withBuffer() {
 }
 func withoutBuffer() {
 	defer fmt.Print(enterAndLeaveCall("withoutBuffer "))
-	produceAndConsumer(0)
+	produceAndConsumer(4)
 }
 
 func produceAndConsumer(buffer int) {
 	tmpChan := make(chan int, buffer)
-
-
 
 	consuFun := func(tag string) {
 		select {
@@ -120,25 +119,26 @@ func produceAndConsumer(buffer int) {
 		}
 	}
 
-	testChannelCopy := func(aChan chan int) {
+	testChannelCopy := func(aChan chan interface{}) {
 		fmt.Println(aChan)
 		select {
-		case _, ok := <-aChan:
+		case tmp, ok := <-aChan:
 			if !ok {
 				fmt.Println("close channel")
+			} else {
+				fmt.Println(tmp)
 			}
 
 		}
 	}
 
-
-	fmt.Println(tmpChan)
-	go testChannelCopy(tmpChan)
-	go testChannelCopy(tmpChan)
+	fmt.Println(tmpChan,"copy fun is ",testChannelCopy)
+	//go testChannelCopy(tmpChan)
+	//go testChannelCopy(tmpChan)
 
 	go consuFun("c1")
 	go consuFun("c2")
-	go consuFun("c3")
+	//go consuFun("c3")
 	time.Sleep(3 * time.Second)
 	//close(tmpChan)
 	//close(tmpChan)

@@ -77,34 +77,38 @@ func mutipleCancelContextUsage() {
 }
 
 func main() {
-	//cancelCtxUse()
+	//runtime.GOMAXPROCS(3)
+	cancelCtxUse()
 	//testDefer()
 	//backgroundContextUse()
-	mutipleCancelContextUsage()
+	//mutipleCancelContextUsage()
 	time.Sleep(time.Minute)
 
 }
 
 func cancelCtxUse() {
 	parent := context.Background()
-	calCtx1, cancelFun := context.WithCancel(parent)
-	tCtx, cancel := context.WithCancel(calCtx1)
-	go handleCancelContext(tCtx)
+	calCtx1, _ := context.WithCancel(parent)
+	tCtx, canF := context.WithCancel(calCtx1)
+	go handleCancelContext(calCtx1)
 	go handleCancelContext(tCtx)
 	go handleCancelContext(tCtx)
 
 	go func() {
 		time.Sleep(3 * time.Second)
-		if true {
-			cancel()
-		} else {
-			cancelFun()
-		}
+		//if true {
+		//	cancel()
+		//} else {
+		//	cancelFun()
+		//}
+		//cancelFun()
+		canF()
 	}()
 
 	select {
-	case <-tCtx.Done():
+	case <-calCtx1.Done():
 		fmt.Println("main ctx is done", tCtx.Err())
+
 	}
 }
 
