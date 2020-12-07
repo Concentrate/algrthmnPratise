@@ -1,0 +1,6 @@
+[submodule "othersLeetCode/detail-algrorithmn"]
+	path = othersLeetCode/detail-algrorithmn
+	url = git@github.com:labuladong/fucking-algorithm.git
+[submodule "othersLeetCode/leetcode"]
+	path = othersLeetCode/leetcode
+	url = https://github.com/Tcdian/LeetCode.git
