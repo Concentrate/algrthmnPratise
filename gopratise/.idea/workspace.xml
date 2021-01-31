@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed578bf6-f2a9-4bb0-aae7-eafdf50ec9d4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/goweb/rawweb/SimpleHttpServer.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../src/main/java/com/com/ldy/java/AlgrithmnPratise/DataStuctPratise/Tree/TreeOutPutTry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../src/main/java/com/com/ldy/java/AlgrithmnPratise/tantan/TrimInnerSpaceString.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaPratise.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaPratise.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/com/com/ldy/java/AlgrithmnPratise/letcode/MinimunIncrement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/com/ldy/java/AlgrithmnPratise/letcode/MinimunIncrement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stringtest/charoutput.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/main/java/com/com/ldy/java/AlgrithmnPratise/NewOne.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/main/java/com/com/ldy/java/AlgrithmnPratise/soul/Assignment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/main/java/com/com/ldy/java/AlgrithmnPratise/soul/Homework.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/main/java/com/com/ldy/java/AlgrithmnPratise/soul/LinkedListReverse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/main/java/com/com/ldy/java/AlgrithmnPratise/soul/SingleInstance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +89,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Build.go build ldy.gopratise/goweb/rawweb">
+  <component name="RunManager" selected="Go Build.go build ldy.gopratise/stringtest">
     <configuration name="go build ldy.gopratise/contextpratise" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="gopratise" />
       <working_directory value="$PROJECT_DIR$" />
@@ -125,6 +125,15 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
+    <configuration name="go build ldy.gopratise/stringtest" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="gopratise" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/stringtest/charoutput.go" />
+      <package value="ldy.gopratise/stringtest" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build listUsage.go listUsage.go" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
       <module name="gopratise" />
       <working_directory value="$PROJECT_DIR$" />
@@ -134,24 +143,21 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="rest-api_1#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_1.http" runType="Run single request">
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Go Build.go build listUsage.go listUsage.go" />
       <item itemvalue="Go Build.go build ldy.gopratise/goweb/iris" />
       <item itemvalue="Go Build.go build ldy.gopratise/goroutine" />
       <item itemvalue="Go Build.go build ldy.gopratise/contextpratise" />
       <item itemvalue="Go Build.go build ldy.gopratise/goweb/rawweb" />
-      <item itemvalue="HTTP Request.rest-api_1#1" />
+      <item itemvalue="Go Build.go build ldy.gopratise/stringtest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build ldy.gopratise/stringtest" />
         <item itemvalue="Go Build.go build ldy.gopratise/goweb/rawweb" />
         <item itemvalue="Go Build.go build ldy.gopratise/goweb/iris" />
         <item itemvalue="Go Build.go build ldy.gopratise/contextpratise" />
         <item itemvalue="Go Build.go build ldy.gopratise/goroutine" />
-        <item itemvalue="HTTP Request.rest-api_1#1" />
       </list>
     </recent_temporary>
   </component>
