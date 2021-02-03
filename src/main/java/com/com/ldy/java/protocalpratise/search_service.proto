@@ -1,0 +1,12 @@
+syntax = "proto2";
+package com.com.ldy.java.protocalpratise;
+message Request{
+  required string query=1;
+}
+message Response{
+  required  string response=1;
+}
+
+service SearchService{
+  rpc search (Request)  returns (Response);
+}
