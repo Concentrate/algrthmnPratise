@@ -15,6 +15,18 @@ import java.util.Random;
 public class CollectionUtil {
 
 
+    public static int[] listToArray(List<Integer> list) {
+        if (list == null) {
+            return null;
+        }
+
+        int[] arr = new int[list.size()];
+        for (int a1 = 0; a1 < list.size(); a1++) {
+            arr[a1] = list.get(a1);
+        }
+        return arr;
+    }
+
     public static void displayArray(int[] array) {
         if (array == null) {
             return;
