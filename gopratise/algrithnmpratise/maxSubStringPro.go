@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+/**两个字符串比较问题，之 最长子串问题*/
 func maxInt(a int, b int) int {
 	if a > b {
 		return a
@@ -10,6 +11,23 @@ func maxInt(a int, b int) int {
 }
 
 func maxSubString(tmp1 string, tmp2 string) string {
+
+	if len(tmp1) == 1 {
+		for a1 := 0; a1 < len(tmp2); a1++ {
+			if tmp1[0] == tmp2[a1] {
+				return tmp1
+			}
+		}
+		return ""
+	}
+	if len(tmp2) == 1 {
+		for a1 := 0; a1 < len(tmp1); a1++ {
+			if tmp2[0] == tmp1[a1] {
+				return tmp2
+			}
+		}
+		return ""
+	}
 	n := len(tmp1)
 	m := len(tmp2)
 	var matrix = [][]int{}
@@ -52,13 +70,12 @@ func maxSubString(tmp1 string, tmp2 string) string {
 		}
 	}
 
+	fmt.Printf("max sub string length %v\n,max str1 end index is %v\n ", maxRes, fromFirstEndIndex)
 
-	fmt.Printf("max sub string length %v\n,max str1 end index is %v\n ",maxRes,fromFirstEndIndex)
-
-	return tmp1[fromFirstEndIndex-maxRes+1:fromFirstEndIndex+1]
+	return tmp1[fromFirstEndIndex-maxRes+1 : fromFirstEndIndex+1]
 
 }
 
 func main() {
-	fmt.Println(maxSubString("abcgggde","abcgggeedfg"))
+	fmt.Println(maxSubString("eggeed", "abcgggeedfg"))
 }
