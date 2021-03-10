@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 /**两个字符串比较问题，之 最长子串问题*/
-func maxInt(a int, b int) int {
+func MaxInt(a int, b int) int {
 	if a > b {
 		return a
 	}
@@ -66,7 +66,7 @@ func maxSubString(tmp1 string, tmp2 string) string {
 			if matrix[i][j] > maxRes {
 				fromFirstEndIndex = i
 			}
-			maxRes = maxInt(matrix[i][j], maxRes)
+			maxRes = MaxInt(matrix[i][j], maxRes)
 		}
 	}
 
