@@ -77,5 +77,5 @@ func maxSubString(tmp1 string, tmp2 string) string {
 }
 
 func main() {
-	fmt.Println(maxSubString("eggeed", "abcgggeedfg"))
+	fmt.Println(maxSubString("eggeaed", "abcgggeedfg"))
 }
