@@ -8,6 +8,13 @@ import (
 type HelloService interface {
 	Hello()
 }
+
+type  SimpleHello struct {
+	HelloService
+}
+
+
+
 type People struct {
 	Name string
 	Age  int
@@ -27,9 +34,18 @@ func Hello(p *People) {
 	p.Hello()
 }
 
+func displayOutAny(tmpIn interface{})   {
+	fmt.Println(reflect.TypeOf(tmpIn).Name(), reflect.TypeOf(tmpIn).Kind())
+	//fmt.Println(reflect.ValueOf(tmpIn),reflect.TypeOf(tmpIn))
+	//fmt.Println(reflect.TypeOf(tmpIn).Name())
+	reStu:=reflect.TypeOf(tmpIn)
+	fmt.Println(reStu.NumMethod())
+
+}
+
 func main() {
 
-	var stu People=People{"ok",1}
+	var stu People = People{"ok", 1}
 
 	typeOfStu := reflect.TypeOf(stu)
 	typeOfPtr := reflect.TypeOf(&stu)
@@ -39,13 +55,15 @@ func main() {
 
 	fmt.Println(typeOfPtr.Elem().Name(), typeOfPtr.Kind())
 
+	fmt.Println(reflect.TypeOf(Hello).Name(), reflect.TypeOf(Hello).Kind())
 
-	fmt.Println("point method num is ",typeOfPtr.NumMethod(), "\n value method num is ",typeOfStu.NumMethod())
+	fmt.Println(reflect.TypeOf(helloService).Elem().Name(), reflect.TypeOf(helloService).Kind())
 
-	var valueOfStuPtr=reflect.ValueOf(&stu)
+	fmt.Println("point method num is ", typeOfPtr.NumMethod(), "\n value method num is ", typeOfStu.NumMethod())
+
+	var valueOfStuPtr = reflect.ValueOf(&stu)
 
 	valueOfStuPtr.MethodByName("Hello").Call([]reflect.Value{})
-
 
 	//var typeOfOk=reflect.TypeOf(ok)
 	fmt.Println(reflect.TypeOf(ok).Name(), reflect.TypeOf(ok).Kind())
@@ -60,9 +78,10 @@ func main() {
 
 	}
 
+	var stuVa = reflect.ValueOf(stu)
+	var tmRevertToStru = stuVa.Interface().(People)
+	fmt.Println(stuVa, stuVa.Interface().(People), tmRevertToStru)
 
-	var stuVa=reflect.ValueOf(stu)
-	var tmRevertToStru=stuVa.Interface().(People);
-	fmt.Println(stuVa,stuVa.Interface().(People),tmRevertToStru)
+	displayOutAny(SimpleHello{})
 
 }
