@@ -29,7 +29,7 @@ func Hello(p *People) {
 
 func main() {
 
-	var stu People
+	var stu People=People{"ok",1}
 
 	typeOfStu := reflect.TypeOf(stu)
 	typeOfPtr := reflect.TypeOf(&stu)
@@ -38,6 +38,14 @@ func main() {
 	fmt.Println(typeOfStu.Name(), typeOfStu.Kind())
 
 	fmt.Println(typeOfPtr.Elem().Name(), typeOfPtr.Kind())
+
+
+	fmt.Println("point method num is ",typeOfPtr.NumMethod(), "\n value method num is ",typeOfStu.NumMethod())
+
+	var valueOfStuPtr=reflect.ValueOf(&stu)
+
+	valueOfStuPtr.MethodByName("Hello").Call([]reflect.Value{})
+
 
 	//var typeOfOk=reflect.TypeOf(ok)
 	fmt.Println(reflect.TypeOf(ok).Name(), reflect.TypeOf(ok).Kind())
@@ -51,5 +59,10 @@ func main() {
 		helloMe2.Func.Call([]reflect.Value{reflect.ValueOf(&stu)})
 
 	}
+
+
+	var stuVa=reflect.ValueOf(stu)
+	var tmRevertToStru=stuVa.Interface().(People);
+	fmt.Println(stuVa,stuVa.Interface().(People),tmRevertToStru)
 
 }
