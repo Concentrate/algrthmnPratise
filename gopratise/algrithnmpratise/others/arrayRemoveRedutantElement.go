@@ -25,4 +25,5 @@ func main() {
 	//tmpArr:=[]int{1,1,2,3,4,5,5,6,8,7,9}
 	tmpArr2:=[]int{1,1,1,1,1,1,1,1}
 	fmt.Println(removeOrderRedutantElement(tmpArr2))
+
 }
