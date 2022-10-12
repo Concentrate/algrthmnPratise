@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JavaPratise.iml" filepath="$PROJECT_DIR$/JavaPratise.iml" />
-      <module fileurl="file://$PROJECT_DIR$/gopratise/gopratise.iml" filepath="$PROJECT_DIR$/gopratise/gopratise.iml" />
       <module fileurl="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-anno/jetcache-anno.iml" filepath="$PROJECT_DIR$/../weishi-jetcache/jetcache-anno/jetcache-anno.iml" />
       <module fileurl="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-anno-api/jetcache-anno-api.iml" filepath="$PROJECT_DIR$/../weishi-jetcache/jetcache-anno-api/jetcache-anno-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-starter/jetcache-autoconfigure/jetcache-autoconfigure.iml" filepath="$PROJECT_DIR$/../weishi-jetcache/jetcache-starter/jetcache-autoconfigure/jetcache-autoconfigure.iml" />

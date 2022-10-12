@@ -2,14 +2,28 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-anno-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-anno-api/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-anno/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-anno/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-core/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-starter/jetcache-autoconfigure/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-starter/jetcache-autoconfigure/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-starter/jetcache-starter-redis-lettuce/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-starter/jetcache-starter-redis-lettuce/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-starter/jetcache-starter-redis-springdata/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-starter/jetcache-starter-redis-springdata/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-starter/jetcache-starter-redis/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-starter/jetcache-starter-redis/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-support/jetcache-redis-lettuce/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-support/jetcache-redis-lettuce/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-support/jetcache-redis-springdata/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-support/jetcache-redis-springdata/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-support/jetcache-redis/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-support/jetcache-redis/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../weishi-jetcache/jetcache-test/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../weishi-jetcache/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../weishi-jetcache/src/main/resources" charset="UTF-8" />
   </component>
 </project>
